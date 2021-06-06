@@ -5,7 +5,7 @@
 * License: https://bootstrapmade.com/license/
 */
 
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -114,7 +114,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -123,7 +123,7 @@
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
+  on('click', '.navbar .dropdown > a', function (e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
       e.preventDefault()
       this.nextElementSibling.classList.toggle('dropdown-active')
@@ -133,7 +133,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
+  on('click', '.scrollto', function (e) {
     if (select(this.hash)) {
       e.preventDefault()
 
@@ -198,37 +198,37 @@
     }
   });
 
-   /**
-   * Partners Slider
-   */
-    new Swiper('.partners-slider', {
-      speed: 400,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
+  /**
+  * Partners Slider
+  */
+  new Swiper('.partners-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 40
       },
-      slidesPerView: 'auto',
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
+      480: {
+        slidesPerView: 3,
+        spaceBetween: 60
       },
-      breakpoints: {
-        320: {
-          slidesPerView: 2,
-          spaceBetween: 40
-        },
-        480: {
-          slidesPerView: 3,
-          spaceBetween: 60
-        },
-        640: {
-          slidesPerView: 4,
-          spaceBetween: 80
-        }
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 80
       }
-    });
+    }
+  });
 
   /**
    * Porfolio isotope and filter
@@ -242,9 +242,9 @@
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        portfolioFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
@@ -252,7 +252,7 @@
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        portfolioIsotope.on('arrangeComplete', function() {
+        portfolioIsotope.on('arrangeComplete', function () {
           AOS.refresh()
         });
       }, true);
@@ -327,133 +327,132 @@
         display: false,
         position: "bottom",
         onClick: (e) => e.stopPropagation()
-        },
-        responsive: true,
-
-      plugins: {
-        datalabels: {
-                formatter: (value, ctx) => {
-                
-                  let sum = 0;
-                  let dataArr = ctx.chart.data.datasets[0].data;
-                  dataArr.map(data => {
-                      sum += data;
-                  });
-                  let percentage = (value*100 / sum).toFixed(1)+"%";
-                  return percentage;
-                },
-                color: '#fff',
-                     }
-        },
-        tooltips: {
-          callbacks: {
-              label: function(tooltipItem, data) {
-                var value = String(data['datasets'][0]['data'][tooltipItem['index']]);
-                value = value.split(/(?=(?:...)*$)/);
-                value = value.join('.');
-                return data['labels'][tooltipItem['index']]+": "+value;
-               }
-         }
-    }
-    }
-});
-
-
-
-new Chart(document.getElementById("pie-chart-nft"), {
-  type: 'pie',
-  data: {
-    labels: [
-      '0',
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7',
-      '8',
-      '9',
-      '10',
-      '11'
-    ],
-    datasets: [{
-      label: 'NFT Distribution',
-      data: [7000,
-        5425,
-        4204,
-        3258,
-        2525,
-        1957,
-        1516,
-        1175,
-        910,
-        706,
-        547,
-        424],
-      backgroundColor: [
-        '#4285F4',
-        '#EA4335',
-        '#FBBC04',
-        '#35A853',
-        '#FF6E02',
-        '#46BDC6',
-        '#7BAAF7',
-        '#FCD04F',
-        '#B2FFA9',
-        '#71C287',
-        '#FF994E',
-        '#7ED1D7'
-      ],
-      hoverOffset: 4,
-    }]
-  },
-  options: {
-    title: {
-      display: false,
-      text: 'NFT Mitable Distribution'
-    },
-    legend: {
-      display: true,
-      position: "bottom",
-      onClick: (e) => e.stopPropagation()
       },
       responsive: true,
 
-    plugins: {
-      datalabels: {
-              formatter: (value, ctx) => {
-                return "";
-                let sum = 0;
-                let dataArr = ctx.chart.data.datasets[0].data;
-                dataArr.map(data => {
-                    sum += data;
-                });
-                let percentage = (value*100 / sum).toFixed(1)+"%";
-                return percentage;
+      plugins: {
+        datalabels: {
+          formatter: (value, ctx) => {
 
-            
-              },
-              color: '#fff',
-                   }
+            let sum = 0;
+            let dataArr = ctx.chart.data.datasets[0].data;
+            dataArr.map(data => {
+              sum += data;
+            });
+            let percentage = (value * 100 / sum).toFixed(1) + "%";
+            return percentage;
+          },
+          color: '#fff',
+        }
       },
       tooltips: {
         callbacks: {
-            label: function(tooltipItem, data) {
-              var value = String(data['datasets'][0]['data'][tooltipItem['index']]);
-              value = value.split(/(?=(?:...)*$)/);
-              value = value.join('.');
-              return data['labels'][tooltipItem['index']]+": "+value;
-             }
-       }
-  },
-  elements: {
-    arc: {
-        borderWidth: 0
+          label: function (tooltipItem, data) {
+            var value = String(data['datasets'][0]['data'][tooltipItem['index']]);
+            value = value.split(/(?=(?:...)*$)/);
+            value = value.join('.');
+            return data['labels'][tooltipItem['index']] + ": " + value;
+          }
+        }
+      }
     }
-}
-  }
-});
+  });
+
+
+
+  new Chart(document.getElementById("pie-chart-nft"), {
+    type: 'pie',
+    data: {
+      labels: [
+        'Lead',
+        'Aluminium',
+        'Zinc',
+        'Copper',
+        'Tin',
+        'Cobalt',
+        'Silver',
+        'Platinum',
+        'Gold',
+        'Palladium',
+        'Irindium',
+        'Rhodium'
+      ],
+      datasets: [{
+        label: 'NFT Distribution',
+        data: [7000,
+          5425,
+          4204,
+          3258,
+          2525,
+          1957,
+          1516,
+          1175,
+          910,
+          706,
+          547,
+          424],
+        backgroundColor: [
+          '#4285F4',
+          '#EA4335',
+          '#FBBC04',
+          '#35A853',
+          '#FF6E02',
+          '#46BDC6',
+          '#7BAAF7',
+          '#FCD04F',
+          '#B2FFA9',
+          '#71C287',
+          '#FF994E',
+          '#7ED1D7'
+        ],
+        hoverOffset: 4,
+      }]
+    },
+    options: {
+      title: {
+        display: false,
+        text: 'NFT Mitable Distribution'
+      },
+      legend: {
+        display: true,
+        position: "bottom",
+        onClick: (e) => e.stopPropagation()
+      },
+      responsive: true,
+
+      plugins: {
+        datalabels: {
+          formatter: (value, ctx) => {
+
+            let sum = 0;
+            let dataArr = ctx.chart.data.datasets[0].data;
+            dataArr.map(data => {
+              sum += data;
+            });
+            let percentage = (value * 100 / sum).toFixed(0) + "%";
+            return percentage;
+
+          },
+          color: '#fff',
+        }
+      },
+      tooltips: {
+        callbacks: {
+          label: function (tooltipItem, data) {
+            var value = String(data['datasets'][0]['data'][tooltipItem['index']]);
+            value = value.split(/(?=(?:...)*$)/);
+            value = value.join('.');
+            return data['labels'][tooltipItem['index']] + ": " + value;
+          }
+        }
+      },
+      elements: {
+        arc: {
+          borderWidth: 0
+        }
+      }
+    }
+  });
 
 
 
