@@ -4,6 +4,10 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+import Isotope from 'isotope-layout';
+import Swiper from '/assets/vendor/swiper/swiper-bundle.min.js';
+import GLightbox from '/assets/vendor/glightbox/js/glightbox.min.js';
+import AOS from '/assets/vendor/aos/aos.js';
 
 (function () {
   "use strict";

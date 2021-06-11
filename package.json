@@ -1,0 +1,27 @@
+{
+  "name": "ingot-landing-page",
+  "version": "1.0.0",
+  "description": "Thanks for downloading this template!",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ingotfarming@github.com/ingotfarming/ingot-landing-page.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ingotfarming/ingot-landing-page/issues"
+  },
+  "homepage": "https://github.com/ingotfarming/ingot-landing-page#readme",
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.3.1",
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "isotope-layout": "^3.0.6"
+  }
+}
