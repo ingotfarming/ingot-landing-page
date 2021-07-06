@@ -12,7 +12,7 @@ npm run start
 
 ### Compiles and minifies for production
 ```
-npm run buil
+npm run build
 ```
 
 ### Lints and fixes files
